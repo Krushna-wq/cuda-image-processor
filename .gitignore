@@ -1,0 +1,7 @@
+# Exclude compiled binaries and executables
+image_processor
+test_cuda
+*.o
+
+# OS metadata
+.DS_Store
