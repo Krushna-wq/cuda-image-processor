@@ -1,6 +1,6 @@
 # CUDA Batch Image Grayscale Processor
 
-An enterprise-grade, lightweight GPU-accelerated application to convert large batches of raw high-resolution RGB PPM images into grayscale PGM images using custom C++/CUDA kernels.
+A GPU-accelerated application for converting batches of RGB PPM images into grayscale PGM images using custom C++/CUDA kernels.
 
 ## Objective
 To demonstrate an efficient CUDA pipeline that handles CPU-to-GPU memory transfer, runs concurrent pixel conversion through a 2D grid/block thread arrangement, and saves results reliably.
@@ -9,6 +9,22 @@ To demonstrate an efficient CUDA pipeline that handles CPU-to-GPU memory transfe
 - C++17
 - NVIDIA CUDA (v12.x+)
 - Python 3 (solely for sample dataset generation)
+- ## Execution Results
+
+The project was executed successfully on an NVIDIA Tesla T4 GPU in Google Colab.
+
+- Input images: 100
+- Output images: 100
+- Resolution: 512 x 512
+- Total pixels processed: 26,214,400
+- CUDA block size: 16 x 16
+- CUDA grid size: 32 x 32
+- GPU: NVIDIA Tesla T4
+- CUDA version: 12.8
+- GPU kernel execution time: ~1.80 ms
+- Total processing time: ~258.35 ms
+
+All 100 input RGB PPM images were successfully converted into 100 grayscale PGM images.
 
 ## CPU -> GPU -> CPU Data Flow
 1. **CPU**: Reads PPM image from storage, extracts dimensions, prepares raw RGB 1D byte vector.
